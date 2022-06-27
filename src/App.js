@@ -1,20 +1,44 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Casual from "./components/casual/Casual";
+import Login from "./components/login/Login";
 import Nav from "./components/nav/Nav";
+import Ranked from "./components/ranked/Ranked";
+import Register from "./components/register/Register";
+import Game from "./pages/game/Game";
 import Homepage from "./pages/homepage/Homepage";
-import LogIn from "./pages/logIn/LogIn";
+import Leaderboards from "./pages/leaderboards/Leaderboards";
 import Profile from "./pages/profile/Profile";
-import Register from "./pages/register/Register";
 
 const App = () => {
+  const [login, setLogin] = useState(false);
+  const [register, setRegister] = useState(false);
+  const [ranked, setRanked] = useState(false);
+  const [casual, setCasual] = useState(false);
+
   return (
     <div className="App">
+      {login && <Login setLogin={setLogin} />}
+      {register && <Register setRegister={setRegister} />}
+      {ranked && <Ranked setRanked={setRanked} />}
+      {casual && <Casual setCasual={setCasual} />}
+
       <BrowserRouter>
-        <Nav />
+        <Nav setLogin={setLogin} setRegister={setRegister} />
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route
+            path="/"
+            element={
+              <Homepage
+                setRanked={setRanked}
+                setCasual={setCasual}
+                setLogin={setLogin}
+              />
+            }
+          />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/leaderboards" element={<Leaderboards />} />
+          <Route path="/game" element={<Game />} />
         </Routes>
       </BrowserRouter>
     </div>

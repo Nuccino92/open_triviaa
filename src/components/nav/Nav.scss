@@ -1,12 +1,29 @@
-.Nav {
-  border-bottom: 2px solid black;
-  padding: 20px;
+.Nav-component {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    height: 100px;
+    width: 200px;
+    cursor: pointer;
+  }
 
   ul {
-    border: 2px solid red;
     display: flex;
+    justify-content: flex-end;
+
     li {
       margin: 0 6px;
+      font-size: 24px;
+      color: white !important;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+
+    a {
+      color: white;
     }
   }
 }

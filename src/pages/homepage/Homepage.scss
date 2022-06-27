@@ -1,3 +1,7 @@
 .Homepage-component {
-  border: 2px solid black;
+  border: 5px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,13 +1,43 @@
+import { useState } from "react";
 import GameModal from "../../styledComponents/GameModal.styled";
+import { useDispatch } from "react-redux";
+import { startCasualGame } from "../../redux/actions/game";
 
 const Casual = ({ setCasual }) => {
+  const dispatch = useDispatch(null);
+
+  const [setupInformation, setSetupInformation] = useState({
+    amount: 1,
+    category: 9,
+    difficulty: "",
+    type: "",
+  });
+
   const handleClick = (e) => {
     if (e.target.className.includes("Casual-component")) setCasual(false);
   };
 
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+
+    setSetupInformation((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("go");
+    dispatch(startCasualGame(setupInformation)).then(() => {
+      console.log("CASUAL START!");
+    });
+  };
+
+  // prevents user from entering custom number of questions
+  const preventCustom = () => {
+    return;
   };
 
   return (
@@ -17,17 +47,16 @@ const Casual = ({ setCasual }) => {
         <form>
           <label htmlFor="amount">Number of Questions:</label>
           <input
+            onKeyDown={preventCustom}
             min={1}
             max={50}
             type="number"
             name="amount"
             defaultValue={1}
+            onChange={handleChange}
           />
           <label htmlFor="category">Select Category:</label>
-          <select name="category">
-            <option value="" selected disabled hidden>
-              Choose here
-            </option>
+          <select name="category" onChange={handleChange}>
             <option value={9}>General Knowledge</option>
             <option value={10}>Books</option>
             <option value={11}>Film</option>
@@ -54,14 +83,15 @@ const Casual = ({ setCasual }) => {
             <option value={32}>Cartoon & Animations</option>
           </select>
           <label htmlFor="category">Select difficulty:</label>
-          <select name="difficulty">
+          <select name="difficulty" onChange={handleChange}>
+            <option value={""}>Any Difficulty</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
           </select>
           <label htmlFor="category">Select Type:</label>
-          <select name="type">
-            <option value="">Any Type</option>
+          <select name="type" onChange={handleChange}>
+            <option value={""}>Any Type</option>
             <option value="multiple">Multiple Choice</option>
             <option value="boolean">True / False</option>
           </select>

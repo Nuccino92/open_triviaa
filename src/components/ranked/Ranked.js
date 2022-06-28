@@ -1,11 +1,11 @@
-import { useEffect } from "react";
 import { useState } from "react";
-import fetchQuestions from "../../resources/fetchQuestions";
+import { useDispatch } from "react-redux";
+import { startRankedGame } from "../../redux/actions/game";
 import GameModal from "../../styledComponents/GameModal.styled";
 
 const Ranked = ({ setRanked }) => {
+  const dispatch = useDispatch(null);
   const [selectedCategory, setSelectedCategory] = useState(9);
-  const [questions, setQuestions] = useState(null);
 
   const handleClick = (e) => {
     if (e.target.className.includes("Ranked-component"))
@@ -14,16 +14,14 @@ const Ranked = ({ setRanked }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setQuestions(await fetchQuestions(selectedCategory));
+    dispatch(startRankedGame(selectedCategory)).then(() => {
+      console.log("GO!");
+    });
   };
 
   const handleChange = (e) => {
     setSelectedCategory(e.target.value);
   };
-
-  useEffect(() => {
-    console.log(questions);
-  }, [questions]);
 
   return (
     <GameModal onMouseDown={handleClick} className="Ranked-component">

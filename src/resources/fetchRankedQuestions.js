@@ -1,6 +1,6 @@
 import shuffle from "./shuffle";
 
-const fetchQuestions = async (category) => {
+const fetchRankedQuestions = async (category) => {
   const array = [];
 
   const easy = await fetch(
@@ -35,4 +35,4 @@ const fetchQuestions = async (category) => {
   return shuffle(array);
 };
 
-export default fetchQuestions;
+export default fetchRankedQuestions;

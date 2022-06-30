@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import HomeButton from "../../styledComponents/HomeButton.styled";
 import "./Homepage.scss";
+import { useDispatch } from "react-redux";
+import { RESET_GAME } from "../../redux/actions/types";
 
 const Homepage = ({ setLogin, setRanked, setCasual }) => {
+  const dispatch = useDispatch(null);
+
   const isAuthenticated = true;
+
+  useEffect(() => {
+    dispatch({ type: RESET_GAME });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleCasual = () => {
     setCasual(true);

@@ -1,4 +1,4 @@
-import { INITIATE_CASUAL, INITIATE_RANKED } from "../actions/types";
+import { INITIATE_CASUAL, INITIATE_RANKED, RESET_GAME } from "../actions/types";
 
 const initialValue = {
   questions: [],
@@ -9,16 +9,20 @@ const gameReducer = (state = initialValue, action) => {
   switch (action.type) {
     case INITIATE_RANKED:
       return {
-        ...state,
         questions: action.payload,
         mode: "ranked",
       };
 
     case INITIATE_CASUAL:
       return {
-        ...state,
         questions: action.payload,
         mode: "casual",
+      };
+
+    case RESET_GAME:
+      return {
+        questions: [],
+        mode: null,
       };
 
     default:

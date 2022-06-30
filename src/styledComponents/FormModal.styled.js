@@ -4,6 +4,7 @@ const FormModal = styled.div`
   position: fixed;
   height: 100vh;
   width: 100vw;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.343);
   z-index: 0;
   display: flex;

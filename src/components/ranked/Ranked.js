@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { startRankedGame } from "../../redux/actions/game";
 import GameModal from "../../styledComponents/GameModal.styled";
+import { useNavigate } from "react-router-dom";
 
 const Ranked = ({ setRanked }) => {
   const dispatch = useDispatch(null);
+  const navigate = useNavigate();
+
   const [selectedCategory, setSelectedCategory] = useState(9);
 
   const handleClick = (e) => {
@@ -15,7 +18,12 @@ const Ranked = ({ setRanked }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(startRankedGame(selectedCategory)).then(() => {
-      console.log("GO!");
+      // create navigate callback function to make sure state is state is available to router
+      const navigateToGame = () => {
+        setRanked(false);
+        navigate("/game");
+      };
+      navigateToGame();
     });
   };
 

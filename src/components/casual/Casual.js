@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GameModal from "../../styledComponents/GameModal.styled";
 import { useDispatch } from "react-redux";
 import { startCasualGame } from "../../redux/actions/game";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const Casual = ({ setCasual }) => {
   const dispatch = useDispatch(null);
   const navigate = useNavigate(null);
-
-  const { mode, questions } = useSelector((state) => state.gameReducer);
 
   const [setupInformation, setSetupInformation] = useState({
     amount: 1,

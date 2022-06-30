@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Timer from "./Timer";
 
 const Game = () => {
-  const { mode, questions } = useSelector((state) => state.gameReducer);
+  const { mode } = useSelector((state) => state.gameReducer);
 
   return (
     <div>

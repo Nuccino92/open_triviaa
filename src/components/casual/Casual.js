@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GameModal from "../../styledComponents/GameModal.styled";
 import { useDispatch } from "react-redux";
 import { startCasualGame } from "../../redux/actions/game";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Casual = ({ setCasual }) => {
   const dispatch = useDispatch(null);
+  const navigate = useNavigate(null);
+
+  const { mode, questions } = useSelector((state) => state.gameReducer);
 
   const [setupInformation, setSetupInformation] = useState({
     amount: 1,
@@ -31,7 +36,12 @@ const Casual = ({ setCasual }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(startCasualGame(setupInformation)).then(() => {
-      console.log("CASUAL START!");
+      // create navigate callback function to make sure state is state is available to router
+      const navigateToGame = () => {
+        navigate("/game");
+        setCasual(false);
+      };
+      navigateToGame();
     });
   };
 

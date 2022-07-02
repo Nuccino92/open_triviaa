@@ -9,15 +9,16 @@ const Question = ({
   handleSubmit,
   questionData,
 }) => {
-  // when we submit answer, check to see if right or wrong.
-  //  Also listen if finalQuestion === true, if it is stop the game
-
-  const { difficulty, question, type, incorrect_answers, correct_answer } =
-    questionData;
+  const {
+    difficulty,
+    question,
+    type,
+    incorrect_answers,
+    correct_answer,
+    category,
+  } = questionData;
 
   const [choiceOptions, setChoiceOptions] = useState([]);
-
-  console.log(questionData);
 
   useEffect(() => {
     createChoicesArray(incorrect_answers, correct_answer);
@@ -34,31 +35,38 @@ const Question = ({
     return setChoiceOptions(shuffle(array));
   };
 
-  useEffect(() => {
-    console.log(choiceOptions);
-  }, [choiceOptions]);
-
   return (
     <div className={currentTurn ? "question current-question" : "question"}>
       <h3>Question difficulty: {difficulty.toUpperCase()}</h3>
       <p>{stringDecoder(question)}</p>
 
       <form>
-        {choiceOptions.map((option) => {
+        {choiceOptions.map((option, index) => {
+          // checks if option is correct, then passes to handleSubmit
+          const correct = option === correct_answer ? true : false;
+          const selected = option;
+
           return (
-            <label htmlFor="choice">
-              {option}
-              <input type="radio" name="choice" />
-            </label>
+            <button
+              key={index}
+              onClick={(e) =>
+                handleSubmit(
+                  e,
+                  finalQuestion,
+                  correct,
+                  question,
+                  choiceOptions,
+                  selected,
+                  correct_answer,
+                  difficulty,
+                  category
+                )
+              }
+            >
+              {stringDecoder(option)}
+            </button>
           );
         })}
-
-        <button
-          style={{ fontSize: "33px" }}
-          onClick={(e) => handleSubmit(e, finalQuestion)}
-        >
-          submit
-        </button>
       </form>
     </div>
   );

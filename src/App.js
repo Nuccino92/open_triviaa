@@ -10,6 +10,7 @@ import Homepage from "./pages/homepage/Homepage";
 import Leaderboards from "./pages/leaderboards/Leaderboards";
 import Profile from "./pages/profile/Profile";
 import { useSelector } from "react-redux";
+import GameLog from "./pages/gameLog/GameLog";
 
 const App = () => {
   const { mode } = useSelector((state) => state.gameReducer);
@@ -37,6 +38,10 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
           <Route path="/game" element={mode ? <Game /> : <Navigate to="/" />} />
+          <Route
+            path="/game/gamelog"
+            element={mode ? <GameLog /> : <Navigate to="/" />}
+          />
         </Routes>
         {/* modals */}
         {login && <Login setLogin={setLogin} />}

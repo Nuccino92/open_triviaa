@@ -1,8 +1,14 @@
-import { INITIATE_CASUAL, INITIATE_RANKED, RESET_GAME } from "../actions/types";
+import {
+  GAME_LOG,
+  INITIATE_CASUAL,
+  INITIATE_RANKED,
+  RESET_GAME,
+} from "../actions/types";
 
 const initialValue = {
   questions: [],
   mode: null,
+  gameLog: {},
 };
 
 const gameReducer = (state = initialValue, action) => {
@@ -23,6 +29,12 @@ const gameReducer = (state = initialValue, action) => {
       return {
         questions: [],
         mode: null,
+      };
+
+    case GAME_LOG:
+      return {
+        ...state,
+        gameLog: action.payload,
       };
 
     default:

@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import "./Timer.scss";
 
-const Timer = () => {
+const Timer = ({ getTime, gameOver }) => {
   const minutes = useRef(null);
   const seconds = useRef(null);
   const milliseconds = useRef(null);
 
   const [timer, setTimer] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
-  const [completedTime, setCompletedTime] = useState("");
 
   useEffect(() => {
     setTimerOn(true);
@@ -35,12 +34,14 @@ const Timer = () => {
       seconds.current.innerText +
       milliseconds.current.innerText;
 
-    setCompletedTime(thetimer);
+    return thetimer;
   };
 
   useEffect(() => {
-    console.log(completedTime);
-  }, [completedTime]);
+    if (gameOver) {
+      getTime(handleStop());
+    }
+  }, [gameOver, getTime]);
 
   return (
     <div className="timer">
@@ -51,7 +52,6 @@ const Timer = () => {
         {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:
       </span>
       <span ref={milliseconds}>{("0" + ((timer / 10) % 100)).slice(-2)}</span>{" "}
-      <button onClick={handleStop}>stop</button>
     </div>
   );
 };

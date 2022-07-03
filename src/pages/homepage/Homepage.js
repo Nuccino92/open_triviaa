@@ -25,13 +25,35 @@ const Homepage = ({ setLogin, setRanked, setCasual }) => {
 
   return (
     <div className="Homepage-component" data-testid="homepage">
-      <h1>this is the homepage</h1>
+      <h1>
+        <span className="h1-blue">O</span>
+        <span className="h1-orange">p</span>
+        <span className="h1-pink">e</span>
+        <span className="h1-green">n</span>
+        &nbsp;
+        <span className="h1-blue">T</span>
+        <span className="h1-orange">r</span>
+        <span className="h1-pink">i</span>
+        <span className="h1-green">v</span>
+        <span className="h1-blue">i</span>
+        <span className="h1-orange">a</span>
+        &nbsp;
+        <span className="h1-pink">D</span>
+        <span className="h1-green">a</span>
+        <span className="h1-blue">t</span>
+        <span className="h1-orange">a</span>
+        <span className="h1-pink">b</span>
+        <span className="h1-green">a</span>
+        <span className="h1-blue">s</span>
+        <span className="h1-orange">e</span>
+        &nbsp;Quiz Game
+      </h1>
       <p>
-        At vero eos et accusamus et iusto odio dignissimos ducimus qui
-        blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-        et quas molestias excepturi sint occaecati cupiditate non provident,
-        similique sunt in culpa qui officia deserunt mollitia animi, id est
-        laborum et dolorum fuga.
+        The quiz game was built using the data from the Open Trivia Database.
+        Players can create their own quiz with customizable settings and have
+        their score and time tracked. Users can also create an account and take
+        a crack at ranked mode where they have their scores are recorded for
+        each category.
       </p>
       <div>
         <HomeButton onClick={handleCasual}>Casual</HomeButton>

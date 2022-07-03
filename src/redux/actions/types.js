@@ -8,6 +8,7 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const INITIATE_RANKED = "INITIATE_RANKED";
 export const INITIATE_CASUAL = "INITIATE_CASUAL";
 export const RESET_GAME = "RESET_GAME";
+export const GAME_LOG = "GAME_LOG";
 
 // errors
 export const GET_ERRORS = "GET_ERRORS";

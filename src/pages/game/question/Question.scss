@@ -4,6 +4,16 @@
   p {
     font-size: 33px;
   }
+
+  button {
+    cursor: pointer;
+    font-size: 33px;
+    margin-right: 10px;
+
+    &:hover {
+      color: green;
+    }
+  }
 }
 
 .current-question {

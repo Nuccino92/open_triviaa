@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Question from "./question/Question";
 import { useNavigate } from "react-router-dom";
 
 import Timer from "./Timer";
+import { storePostGameData } from "../../redux/actions/game";
 
 const Game = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { mode, questions } = useSelector((state) => state.gameReducer);
 
   const [turn, setTurn] = useState(0);
   const [gameLog, setGameLog] = useState([]);
+  const [time, setTime] = useState(null);
+  const [score, setScore] = useState(0);
+
+  const [gameOver, setGameOver] = useState(false);
 
   const handleSubmit = (
     e,
@@ -41,27 +47,46 @@ const Game = () => {
       ];
     });
 
-    if (finalQuestion) {
-      return handleGameOver();
+    if (correct) {
+      setScore((prev) => prev + 1);
     }
+
+    if (finalQuestion) {
+      setGameOver(true);
+    }
+
     setTurn((prev) => prev + 1);
   };
 
-  const handleGameOver = () => {
-    // set gamelog into redux
-    navigate("/game/gamelog");
+  useEffect(() => {
+    if (gameOver) {
+      getTime();
+      console.log(score);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameOver]);
+
+  const getTime = (time) => {
+    setTime(time);
   };
 
   useEffect(() => {
-    console.log(gameLog);
-  }, [gameLog]);
+    if (time) {
+      dispatch(storePostGameData(gameLog, score, time));
+
+      // set gamelog into redux
+      navigate("/game/gamelog");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [time]);
 
   return (
     <div>
       <h1>{mode.toUpperCase()}</h1>
       <h2>{questions[0].category}</h2>
 
-      <Timer />
+      <Timer getTime={getTime} gameOver={gameOver} />
       {questions.map((question, index) => {
         return (
           <Question

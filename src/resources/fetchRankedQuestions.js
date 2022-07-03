@@ -4,15 +4,15 @@ const fetchRankedQuestions = async (category) => {
   const array = [];
 
   const easy = await fetch(
-    `https://opentdb.com/api.php?amount=7&difficulty=easy&type=multiple&category=${category}`
+    `https://opentdb.com/api.php?amount=6&difficulty=easy&type=multiple&category=${category}`
   );
 
   const medium = await fetch(
-    `https://opentdb.com/api.php?amount=7&difficulty=medium&type=multiple&category=${category}`
+    `https://opentdb.com/api.php?amount=6&difficulty=medium&type=multiple&category=${category}`
   );
 
   const hard = await fetch(
-    `https://opentdb.com/api.php?amount=7&difficulty=hard&type=multiple&category=${category}`
+    `https://opentdb.com/api.php?amount=6&difficulty=hard&type=multiple&category=${category}`
   );
 
   const easyResult = await easy.json();

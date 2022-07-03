@@ -1,0 +1,70 @@
+.GameLog-component {
+  padding: 30px 50px;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 70px;
+      color: #188ff3;
+    }
+
+    h2 {
+      font-size: 35px;
+      color: #f37a18;
+    }
+    p:nth-child(even) {
+      color: #18f384;
+    }
+
+    p:nth-child(odd) {
+      color: #e118f3;
+    }
+    p {
+      font-size: 30px;
+    }
+  }
+
+  .GameLog-component-question {
+    margin: 20px 0;
+
+    h2 {
+      color: #188ff3;
+    }
+
+    h4 {
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      &:nth-child(even) {
+        font-size: 22px;
+      }
+
+      font-size: 25px;
+      color: white;
+    }
+
+    h6 {
+      font-size: 24px;
+      color: #18f384;
+    }
+
+    span {
+      font-size: 22px;
+      margin-right: 14px;
+      color: #e118f3;
+    }
+    .selected-answer {
+      color: red;
+    }
+
+    .correct-answer {
+      color: green !important;
+    }
+  }
+
+  div:nth-child(1) {
+    margin: 20px 0;
+  }
+}

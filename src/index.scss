@@ -5,10 +5,23 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Fredoka One", cursive;
+}
 
-  body {
-    background-color: rgb(53, 53, 151);
-  }
+body {
+  // background-color: rgb(73, 73, 86);
+  background-color: rgb(56, 62, 78);
+  border: 6px solid;
+  border-image: linear-gradient(
+      to right,
+      #188ff3 20%,
+      #f37a18 20%,
+      #f37a18 50%,
+      #e118f3 50%,
+      #e118f3 80%,
+      #18f384 80%
+    )
+    4;
+  min-height: 100vh;
 }
 
 li {

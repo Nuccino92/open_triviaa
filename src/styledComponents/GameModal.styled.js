@@ -14,10 +14,32 @@ const GameModal = styled.div`
   main {
     z-index: 10;
     background-color: white;
-    border: 2px solid blue;
+    border: 9px solid;
     padding: 28px;
     border-radius: 10px;
     max-width: 400px;
+    border-image: linear-gradient(
+        to right,
+        #188ff3 20%,
+        #f37a18 20%,
+        #f37a18 50%,
+        #e118f3 50%,
+        #e118f3 80%,
+        #18f384 80%
+      )
+      4;
+
+    animation: animate 0.6s;
+
+    @keyframes animate {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
 
     h2 {
       font-size: 33px;

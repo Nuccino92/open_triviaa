@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import "./Timer.scss";
 
 const Timer = ({ getTime, gameOver }) => {
   const minutes = useRef(null);
@@ -44,7 +43,7 @@ const Timer = ({ getTime, gameOver }) => {
   }, [gameOver, getTime]);
 
   return (
-    <div className="timer">
+    <div className="Timer-component">
       <span ref={minutes}>
         {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
       </span>

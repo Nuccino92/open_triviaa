@@ -1,3 +1,5 @@
+import "./Game.scss";
+
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Question from "./question/Question";
@@ -82,7 +84,7 @@ const Game = () => {
   }, [time]);
 
   return (
-    <div>
+    <div className="Game-component">
       <h1>{mode.toUpperCase()}</h1>
       <h2>{questions[0].category}</h2>
 

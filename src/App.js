@@ -11,6 +11,7 @@ import Leaderboards from "./pages/leaderboards/Leaderboards";
 import Profile from "./pages/profile/Profile";
 import { useSelector } from "react-redux";
 import GameLog from "./pages/gameLog/GameLog";
+import LoadingScreen from "./components/loadingScreen/LoadingScreen";
 
 const App = () => {
   const { mode } = useSelector((state) => state.gameReducer);
@@ -19,6 +20,8 @@ const App = () => {
   const [register, setRegister] = useState(false);
   const [ranked, setRanked] = useState(false);
   const [casual, setCasual] = useState(false);
+
+  const [loading, setLoading] = useState(true);
 
   return (
     <div className="App">
@@ -32,12 +35,24 @@ const App = () => {
                 setRanked={setRanked}
                 setCasual={setCasual}
                 setLogin={setLogin}
+                setLoading={setLoading}
               />
             }
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
-          <Route path="/game" element={mode ? <Game /> : <Navigate to="/" />} />
+          <Route
+            path="/game"
+            element={
+              loading ? (
+                <LoadingScreen setLoading={setLoading} />
+              ) : mode ? (
+                <Game />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
           <Route
             path="/game/gamelog"
             element={mode ? <GameLog /> : <Navigate to="/" />}

@@ -4,7 +4,7 @@ import "./Homepage.scss";
 import { useDispatch } from "react-redux";
 import { RESET_GAME } from "../../redux/actions/types";
 
-const Homepage = ({ setLogin, setRanked, setCasual }) => {
+const Homepage = ({ setLogin, setRanked, setCasual, setLoading }) => {
   const dispatch = useDispatch(null);
 
   const isAuthenticated = true;
@@ -22,6 +22,11 @@ const Homepage = ({ setLogin, setRanked, setCasual }) => {
     if (!isAuthenticated) return setLogin(true);
     setRanked(true);
   };
+
+  useEffect(() => {
+    setLoading(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="Homepage-component" data-testid="homepage">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const HighScores = () => {
-  const [scores, setScores] = useState([
+  const [scores] = useState([
     {
       category: "General Knowledge",
       time: "03:07:38",

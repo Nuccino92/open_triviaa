@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import "./Profile.scss";
 
 const Profile = () => {
-  const [data, setData] = useState({
+  const [data] = useState({
     picture: "https://c.tenor.com/NICoVNbKVGYAAAAM/profile-picture.gif",
     username: "JohnCena22",
     email: "johnnyboy@gmail.com",
   });
 
-  const [scores, setScores] = useState([
+  const [scores] = useState([
     {
       category: "General Knowledge",
       time: "03:07:38",

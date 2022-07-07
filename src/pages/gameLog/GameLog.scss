@@ -16,6 +16,7 @@
       font-size: 35px;
       color: #f37a18;
     }
+
     p:nth-child(even) {
       color: #18f384;
     }
@@ -29,38 +30,45 @@
   }
 
   .GameLog-component-question {
-    margin: 20px 0;
+    margin: 37px 0;
 
     h2 {
       color: #188ff3;
     }
 
     h4 {
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      &:nth-child(even) {
-        font-size: 22px;
-      }
+      font-size: 22px;
+      color: #f37a18;
+      display: flex;
+      align-items: center;
+    }
 
-      font-size: 25px;
+    p {
       color: white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      font-size: 26px;
     }
 
     h6 {
-      font-size: 24px;
-      color: #18f384;
+      font-size: 22px;
+    }
+
+    .choices-span {
+      color: white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     span {
       font-size: 22px;
-      margin-right: 14px;
-      color: #e118f3;
+      margin-right: 20px;
+      color: rgb(76, 87, 118);
     }
     .selected-answer {
-      color: red;
+      color: rgb(236, 29, 29);
     }
 
     .correct-answer {
-      color: green !important;
+      color: rgb(10, 168, 10) !important;
     }
   }
 

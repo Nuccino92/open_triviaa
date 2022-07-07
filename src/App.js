@@ -12,6 +12,7 @@ import Profile from "./pages/profile/Profile";
 import { useSelector } from "react-redux";
 import GameLog from "./pages/gameLog/GameLog";
 import LoadingScreen from "./components/loadingScreen/LoadingScreen";
+import HighScores from "./pages/highScores/HighScores";
 
 const App = () => {
   const { mode } = useSelector((state) => state.gameReducer);
@@ -40,6 +41,7 @@ const App = () => {
             }
           />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/highscores" element={<HighScores />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
           <Route
             path="/game"

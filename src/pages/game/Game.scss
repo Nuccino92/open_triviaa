@@ -3,19 +3,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid red;
   height: 100%;
 
   h1 {
     font-size: 55px;
+    color: #188ff3;
   }
 
   h2 {
     font-size: 42px;
+    color: #f37a18;
   }
 
   .Timer-component {
     font-size: 40px;
+    color: #e118f3;
   }
 
   .current-question {
@@ -24,6 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #18f384;
 
     h3 {
       font-size: 28px;
@@ -31,12 +34,6 @@
     p {
       font-size: 35px;
       margin: 10px 0;
-    }
-
-    form {
-      button {
-        margin: 0 10px;
-      }
     }
   }
 }

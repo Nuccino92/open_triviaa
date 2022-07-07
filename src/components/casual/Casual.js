@@ -11,8 +11,6 @@ const Casual = ({ setCasual }) => {
   const [setupInformation, setSetupInformation] = useState({
     amount: 1,
     category: 9,
-    difficulty: "",
-    type: "",
   });
 
   const handleClick = (e) => {
@@ -56,7 +54,7 @@ const Casual = ({ setCasual }) => {
           <input
             onKeyDown={preventCustom}
             min={1}
-            max={50}
+            max={20}
             type="number"
             name="amount"
             defaultValue={1}
@@ -90,18 +88,7 @@ const Casual = ({ setCasual }) => {
             <option value={32}>Cartoon & Animations</option>
           </select>
           <label htmlFor="category">Select difficulty:</label>
-          <select name="difficulty" onChange={handleChange}>
-            <option value={""}>Any Difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-          <label htmlFor="category">Select Type:</label>
-          <select name="type" onChange={handleChange}>
-            <option value={""}>Any Type</option>
-            <option value="multiple">Multiple Choice</option>
-            <option value="boolean">True / False</option>
-          </select>
+
           <button onClick={handleSubmit} type="submit">
             Enter
           </button>

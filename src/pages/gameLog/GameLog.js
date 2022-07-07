@@ -25,14 +25,23 @@ const GameLog = () => {
       </header>
 
       {log.map((question, index) => {
+        const { correct } = question;
+
         const number = index + 1;
         return (
           <div className="GameLog-component-question" key={index}>
-            <h2>Question #{number}</h2>
+            <h2>
+              Question #{number} -{" "}
+              {correct ? (
+                <span className="correct-answer">Correct</span>
+              ) : (
+                <span className="selected-answer">Incorrect</span>
+              )}
+            </h2>
             <h4>Question difficulty: {question.difficulty}</h4>
-            <h4>{stringDecoder(question.question)}</h4>
+            <p>{stringDecoder(question.question)}</p>
             <div>
-              <h6>Choices:</h6>
+              <span className="choices-span">Choices:</span>
               {question.choiceOptions.map((choice) => {
                 const { selected, correct_answer } = question;
                 return (

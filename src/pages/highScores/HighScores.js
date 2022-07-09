@@ -1,3 +1,4 @@
+import "./HighScores.scss";
 import { useState } from "react";
 
 const HighScores = () => {
@@ -20,7 +21,8 @@ const HighScores = () => {
   ]);
 
   return (
-    <div>
+    <div className="Highscores-component">
+      <h2>Select A Category</h2>
       <ul>
         <li>General Knowledge</li>
         <li>Books</li>
@@ -35,19 +37,6 @@ const HighScores = () => {
         <li>History</li>
         <li>Anime & Manga</li>
       </ul>
-      <div>
-        <h4>Top 10 Scores</h4>
-        {scores.map((score) => {
-          return (
-            <div>
-              <h6>{score.category}</h6>
-              <span>{score.score} / 15 </span>
-              <span>{score.time}</span>
-              <button>View Game Log</button>
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 };

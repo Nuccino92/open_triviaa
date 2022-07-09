@@ -1,3 +1,5 @@
+@use "../../scss/variables" as var;
+
 .GameLog-component {
   padding: 30px 50px;
 
@@ -9,20 +11,20 @@
 
     h1 {
       font-size: 70px;
-      color: #188ff3;
+      color: var.$Blue;
     }
 
     h2 {
       font-size: 35px;
-      color: #f37a18;
+      color: var.$Orange;
     }
 
     p:nth-child(even) {
-      color: #18f384;
+      color: var.$Teal;
     }
 
     p:nth-child(odd) {
-      color: #e118f3;
+      color: var.$Pink;
     }
     p {
       font-size: 30px;
@@ -33,12 +35,12 @@
     margin: 37px 0;
 
     h2 {
-      color: #188ff3;
+      color: var.$Blue;
     }
 
     h4 {
       font-size: 22px;
-      color: #f37a18;
+      color: var.$Orange;
       display: flex;
       align-items: center;
     }

@@ -1,3 +1,5 @@
+@use "../../scss/variables" as var;
+
 .Homepage-component {
   display: flex;
   flex-direction: column;
@@ -7,28 +9,48 @@
 
   h1 {
     font-size: 60px;
-
     color: white;
 
+    @media (max-width: 1000px) {
+      font-size: 50px;
+    }
+
+    @media (max-width: 850px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 700px) {
+      font-size: 30px;
+    }
+
     .h1-blue {
-      color: #188ff3;
+      color: var.$Blue;
     }
 
     .h1-orange {
-      color: #f37a18;
+      color: var.$Orange;
     }
 
     .h1-pink {
-      color: #e118f3;
+      color: var.$Pink;
     }
 
     .h1-green {
-      color: #18f384;
+      color: var.$Teal;
     }
   }
   p {
     font-size: 27px;
     width: 60%;
     margin: 77px 0;
+
+    @media (max-width: 1000px) {
+      width: 90%;
+      margin: 34px 0;
+    }
+
+    @media (max-width: 700px) {
+      font-size: 22px;
+    }
   }
 }

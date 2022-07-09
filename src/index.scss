@@ -1,3 +1,4 @@
+@use "./scss/variables" as var;
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
 * {
@@ -5,6 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Fredoka One", cursive;
+  transition: 0.4s ease;
 }
 
 body {
@@ -16,12 +18,12 @@ body {
   border: 6px solid;
   border-image: linear-gradient(
       to right,
-      #188ff3 20%,
-      #f37a18 20%,
-      #f37a18 50%,
-      #e118f3 50%,
-      #e118f3 80%,
-      #18f384 80%
+      var.$Blue 20%,
+      var.$Orange 20%,
+      var.$Orange 50%,
+      var.$Pink 50%,
+      var.$Pink 80%,
+      var.$Teal 80%
     )
     4;
   min-height: 100vh;

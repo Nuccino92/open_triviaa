@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import GameLog from "./pages/gameLog/GameLog";
 import LoadingScreen from "./components/loadingScreen/LoadingScreen";
 import HighScores from "./pages/highScores/HighScores";
+import List from "./components/list/List";
 
 const App = () => {
   const { mode } = useSelector((state) => state.gameReducer);
@@ -59,6 +60,7 @@ const App = () => {
             path="/game/gamelog"
             element={mode ? <GameLog /> : <Navigate to="/" />}
           />
+          <Route path="/leaderboards/:category" element={<List />} />
         </Routes>
         {/* modals */}
         {login && <Login setLogin={setLogin} />}

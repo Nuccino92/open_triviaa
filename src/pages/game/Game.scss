@@ -1,3 +1,5 @@
+@use "../../scss/variables" as var;
+
 .Game-component {
   display: flex;
   flex-direction: column;
@@ -7,17 +9,17 @@
 
   h1 {
     font-size: 55px;
-    color: #188ff3;
+    color: var.$Blue;
   }
 
   h2 {
     font-size: 42px;
-    color: #f37a18;
+    color: var.$Orange;
   }
 
   .Timer-component {
     font-size: 40px;
-    color: #e118f3;
+    color: var.$Pink;
   }
 
   .current-question {
@@ -26,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #18f384;
+    color: var.$Teal;
 
     h3 {
       font-size: 28px;

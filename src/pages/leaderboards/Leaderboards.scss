@@ -1,0 +1,27 @@
+@use "../../scss/variables" as var;
+
+.Leaderboards-component {
+  font-size: 30px;
+  text-align: center;
+
+  h2 {
+    font-size: 44px;
+    color: var.$Blue;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    a {
+      margin: 3px 0;
+      color: white;
+      &:hover {
+        color: var.$Pink;
+      }
+    }
+  }
+}

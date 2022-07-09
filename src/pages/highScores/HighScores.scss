@@ -1,0 +1,40 @@
+@use "../../scss/variables" as var;
+
+.Highscores-component {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 44px;
+    color: var.$Blue;
+  }
+
+  ul {
+    text-align: center;
+
+    li {
+      font-size: 25px;
+      color: white;
+      margin: 6px 0;
+      cursor: pointer;
+
+      &:hover {
+        color: var.$Pink;
+      }
+    }
+  }
+
+  h4 {
+    color: var.$Teal;
+    margin-top: 14px;
+  }
+
+  div {
+    text-align: center;
+    h6 {
+      color: var.$Orange;
+    }
+  }
+}

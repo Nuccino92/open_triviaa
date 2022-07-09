@@ -1,25 +1,6 @@
 import "./HighScores.scss";
-import { useState } from "react";
 
 const HighScores = () => {
-  const [scores] = useState([
-    {
-      category: "General Knowledge",
-      time: "03:07:38",
-      score: 9,
-    },
-    {
-      category: "Anime & Manga",
-      time: "02:27:78",
-      score: 7,
-    },
-    {
-      category: "Sports",
-      time: "01:55:24",
-      score: 12,
-    },
-  ]);
-
   return (
     <div className="Highscores-component">
       <h2>Select A Category</h2>

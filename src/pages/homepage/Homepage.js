@@ -31,27 +31,29 @@ const Homepage = ({ setLogin, setRanked, setCasual, setLoading }) => {
   return (
     <div className="Homepage-component" data-testid="homepage">
       <h1>
-        <span className="h1-blue">O</span>
-        <span className="h1-orange">p</span>
-        <span className="h1-pink">e</span>
-        <span className="h1-green">n</span>
-        &nbsp;
-        <span className="h1-blue">T</span>
-        <span className="h1-orange">r</span>
-        <span className="h1-pink">i</span>
-        <span className="h1-green">v</span>
-        <span className="h1-blue">i</span>
-        <span className="h1-orange">a</span>
-        &nbsp;
-        <span className="h1-pink">D</span>
-        <span className="h1-green">a</span>
-        <span className="h1-blue">t</span>
-        <span className="h1-orange">a</span>
-        <span className="h1-pink">b</span>
-        <span className="h1-green">a</span>
-        <span className="h1-blue">s</span>
-        <span className="h1-orange">e</span>
-        &nbsp;Quiz Game
+        <div>
+          <span className="h1-blue">O</span>
+          <span className="h1-orange">p</span>
+          <span className="h1-pink">e</span>
+          <span className="h1-green">n</span>
+          &nbsp;
+          <span className="h1-blue">T</span>
+          <span className="h1-orange">r</span>
+          <span className="h1-pink">i</span>
+          <span className="h1-green">v</span>
+          <span className="h1-blue">i</span>
+          <span className="h1-orange">a</span>
+          &nbsp;
+          <span className="h1-pink">D</span>
+          <span className="h1-green">a</span>
+          <span className="h1-blue">t</span>
+          <span className="h1-orange">a</span>
+          <span className="h1-pink">b</span>
+          <span className="h1-green">a</span>
+          <span className="h1-blue">s</span>
+          <span className="h1-orange">e</span>
+        </div>
+        <div>&nbsp;Quiz Game</div>
       </h1>
       <p>
         The quiz game was built using the data from the Open Trivia Database.

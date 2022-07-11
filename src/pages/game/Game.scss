@@ -10,16 +10,36 @@
   h1 {
     font-size: 55px;
     color: var.$Blue;
+
+    @media (max-width: 500px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 35px;
+    }
   }
 
   h2 {
     font-size: 42px;
     color: var.$Orange;
+
+    @media (max-width: 500px) {
+      font-size: 28px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 25px;
+    }
   }
 
   .Timer-component {
     font-size: 40px;
     color: var.$Pink;
+
+    @media (max-width: 500px) {
+      font-size: 27px;
+    }
   }
 
   .current-question {
@@ -32,10 +52,31 @@
 
     h3 {
       font-size: 28px;
+
+      @media (max-width: 500px) {
+        font-size: 22px;
+      }
+
+      @media (max-width: 350px) {
+        font-size: 19px;
+      }
     }
+
     p {
       font-size: 35px;
       margin: 10px 0;
+
+      @media (max-width: 500px) {
+        font-size: 27px;
+      }
+
+      @media (max-width: 350px) {
+        margin: 5px 0;
+        font-size: 25px;
+      }
+
+      @media (max-width: 320px) {
+      }
     }
   }
 }

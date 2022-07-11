@@ -5,6 +5,7 @@ const GameModal = styled.div`
   height: 100vh;
   width: 100vw;
   top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.343);
   z-index: 0;
   display: flex;
@@ -28,6 +29,10 @@ const GameModal = styled.div`
         #18f384 80%
       )
       4;
+
+    @media (max-width: 290px) {
+      transform: scale(0.95);
+    }
 
     animation: animate 0.6s;
 

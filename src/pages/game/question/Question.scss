@@ -8,22 +8,37 @@
   }
 
   p {
-    font-size: 33px;
+    font-size: 133px;
     color: rgb(202, 202, 202);
     text-align: center;
     font-family: var.$Inter;
+    padding: 0 10px;
+  }
+
+  form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   button {
     cursor: pointer;
     font-size: 30px;
-    margin: 0px 10px;
+    margin: 4px;
     color: white;
     border: 1px solid white;
     padding: 6px 13px;
     border-radius: 10px;
     background-color: rgb(76, 87, 118);
     font-family: var.$Inter;
+
+    @media (max-width: 500px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 20px;
+    }
 
     &:hover {
       color: var.$Orange;

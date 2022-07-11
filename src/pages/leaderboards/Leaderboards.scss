@@ -8,6 +8,10 @@
     font-size: 44px;
     color: var.$Blue;
     margin-bottom: 15px;
+
+    @media (max-width: 350px) {
+      font-size: 34px;
+    }
   }
 
   ul {
@@ -21,6 +25,10 @@
       color: white;
       &:hover {
         color: var.$Pink;
+      }
+
+      @media (max-width: 350px) {
+        font-size: 26px;
       }
     }
   }

@@ -7,4 +7,13 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  color: white;
+
+  @media (max-width: 500px) {
+    font-size: 100px;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 80px;
+  }
 }

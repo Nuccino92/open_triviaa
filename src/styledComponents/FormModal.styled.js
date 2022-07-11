@@ -5,7 +5,9 @@ const FormModal = styled.div`
   height: 100vh;
   width: 100vw;
   top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.343);
+
   z-index: 0;
   display: flex;
   justify-content: center;
@@ -17,6 +19,7 @@ const FormModal = styled.div`
     border: 9px solid;
     padding: 28px;
     border-radius: 10px;
+
     border-image: linear-gradient(
         to right,
         #188ff3 20%,
@@ -27,6 +30,10 @@ const FormModal = styled.div`
         #18f384 80%
       )
       4;
+
+    @media (max-width: 290px) {
+      transform: scale(0.95);
+    }
 
     animation: animate 0.5s;
 

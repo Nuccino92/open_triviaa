@@ -7,9 +7,14 @@
   align-items: center;
   padding: 50px 0;
 
+  @media (max-width: 500px) {
+    padding: 10px 0;
+  }
+
   h1 {
     font-size: 60px;
     color: white;
+    display: flex;
 
     @media (max-width: 1000px) {
       font-size: 50px;
@@ -19,8 +24,21 @@
       font-size: 40px;
     }
 
-    @media (max-width: 700px) {
-      font-size: 30px;
+    @media (max-width: 750px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    @media (max-width: 460px) {
+      font-size: 33px;
+    }
+
+    @media (max-width: 360px) {
+      font-size: 27px;
+    }
+
+    @media (max-width: 300px) {
+      font-size: 24px;
     }
 
     .h1-blue {
@@ -43,6 +61,12 @@
     font-size: 27px;
     width: 60%;
     margin: 77px 0;
+    text-align: center;
+
+    @media (max-width: 1000px) {
+      width: 90%;
+      margin: 34px 0;
+    }
 
     @media (max-width: 1000px) {
       width: 90%;
@@ -50,7 +74,15 @@
     }
 
     @media (max-width: 700px) {
-      font-size: 22px;
+      font-size: 24px;
+    }
+
+    @media (max-width: 500px) {
+      margin: 24px 0;
+    }
+
+    @media (max-width: 310px) {
+      font-size: 20px;
     }
   }
 }

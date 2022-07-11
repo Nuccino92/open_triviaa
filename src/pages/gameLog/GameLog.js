@@ -30,18 +30,18 @@ const GameLog = () => {
         const number = index + 1;
         return (
           <div className="GameLog-component-question" key={index}>
-            <h2>
-              Question #{number} -{" "}
-              {correct ? (
-                <span className="correct-answer">Correct</span>
-              ) : (
-                <span className="selected-answer">Incorrect</span>
-              )}
-            </h2>
+            <h2>Question #{number}</h2>
             <h4>Question difficulty: {question.difficulty}</h4>
             <p>{stringDecoder(question.question)}</p>
             <div>
-              <span className="choices-span">Choices:</span>
+              <span className="answer-span">
+                Answer:{" "}
+                {correct ? (
+                  <span className="correct-answer">Correct</span>
+                ) : (
+                  <span className="selected-answer">Incorrect</span>
+                )}
+              </span>
               {question.choiceOptions.map((choice) => {
                 const { selected, correct_answer } = question;
                 return (
@@ -54,7 +54,7 @@ const GameLog = () => {
                         : null
                     }
                   >
-                    {choice}&nbsp;
+                    {stringDecoder(choice)}&nbsp;
                   </span>
                 );
               })}

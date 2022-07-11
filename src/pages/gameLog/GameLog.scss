@@ -3,6 +3,10 @@
 .GameLog-component {
   padding: 30px 50px;
 
+  @media (max-width: 530px) {
+    padding: 15px 20px;
+  }
+
   header {
     display: flex;
     flex-direction: column;
@@ -12,11 +16,39 @@
     h1 {
       font-size: 70px;
       color: var.$Blue;
+
+      @media (max-width: 800px) {
+        font-size: 55px;
+      }
+
+      @media (max-width: 620px) {
+        font-size: 45px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 40px;
+      }
     }
 
     h2 {
       font-size: 35px;
       color: var.$Orange;
+
+      @media (max-width: 800px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 620px) {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 24px;
+      }
     }
 
     p:nth-child(even) {
@@ -26,8 +58,18 @@
     p:nth-child(odd) {
       color: var.$Pink;
     }
+
     p {
       font-size: 30px;
+      text-align: center;
+
+      @media (max-width: 800px) {
+        font-size: 26px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 22px;
+      }
     }
   }
 
@@ -39,38 +81,47 @@
     }
 
     h4 {
-      font-size: 22px;
+      font-size: 20px;
+      margin: 2px 0;
       color: var.$Orange;
+
       display: flex;
       align-items: center;
     }
 
     p {
-      color: white;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      color: rgb(202, 202, 202);
       font-size: 26px;
+      font-family: var.$Inter;
+
+      @media (max-width: 620px) {
+        font-size: 22px;
+      }
     }
 
-    h6 {
-      font-size: 22px;
+    div {
+      margin: 3px 0;
+      display: flex;
+      flex-direction: column;
     }
 
-    .choices-span {
+    .answer-span {
       color: white;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      font-size: 22px;
     }
 
     span {
       font-size: 22px;
       margin-right: 20px;
       color: rgb(76, 87, 118);
+      margin: 1px 0;
     }
     .selected-answer {
-      color: rgb(236, 29, 29);
+      color: rgb(218, 72, 72);
     }
 
     .correct-answer {
-      color: rgb(10, 168, 10) !important;
+      color: rgb(23, 181, 23) !important;
     }
   }
 

@@ -14,6 +14,17 @@ const HomeButton = styled.button`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media (max-width: 450px) {
+    font-size: 27px;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 24px;
+    border: 4px solid white;
+    padding: 7px 12px;
+    margin: 0 8px;
+  }
 `;
 
 export default HomeButton;

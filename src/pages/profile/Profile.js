@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import EditProfile from "../../components/editProfile/EditProfile";
 import "./Profile.scss";
@@ -30,13 +30,9 @@ const Profile = () => {
   ]);
 
   const handleClick = (e) => {
-    console.log(e.target.className);
-    if (e.target.className.includes("Profile-component")) setEditModal(false);
+    if (e.target.className.includes("EditProfile-component"))
+      setEditModal(false);
   };
-
-  useEffect(() => {
-    console.log(editModal);
-  }, [editModal]);
 
   return (
     <div

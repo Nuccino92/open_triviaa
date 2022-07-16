@@ -63,8 +63,12 @@ const Homepage = ({ setLogin, setRanked, setCasual, setLoading }) => {
         each category.
       </p>
       <div>
-        <HomeButton onClick={handleCasual}>Casual</HomeButton>
-        <HomeButton onClick={handleRanked}>Ranked</HomeButton>
+        <HomeButton role="startCasual" onClick={handleCasual}>
+          Casual
+        </HomeButton>
+        <HomeButton role="startRanked" onClick={handleRanked}>
+          Ranked
+        </HomeButton>
       </div>
     </div>
   );

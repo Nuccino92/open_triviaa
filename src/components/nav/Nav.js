@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/open-trivia-logo.png";
 
 const Nav = ({ setLogin, setRegister }) => {
-  const user = false;
+  const user = true;
   return (
     <nav className="Nav-component">
       {user ? (
@@ -13,7 +13,9 @@ const Nav = ({ setLogin, setRegister }) => {
           </Link>
           <ul>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link role="contentinfo" to="/profile">
+                Profile
+              </Link>
             </li>
             <li>
               <Link to="/leaderboards">Leaderboards</Link>
@@ -26,7 +28,9 @@ const Nav = ({ setLogin, setRegister }) => {
             <img src={logo} alt="Open Trivia Logo home button" />
           </Link>
           <ul>
-            <li onClick={setLogin}>Log in</li>
+            <li role="contentinfo" onClick={setLogin}>
+              Log in
+            </li>
             <li onClick={setRegister}>Register</li>
           </ul>
         </>

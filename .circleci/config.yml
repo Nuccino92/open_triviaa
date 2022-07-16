@@ -8,8 +8,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package-lock.json" }}
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
       - run:
           name: Install dependencies
           command: npm install
@@ -27,6 +27,20 @@ jobs:
           root: .
           paths:
             - .
+  test:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Test
+          command: |
+            if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
+              npm run test
+            fi
+
   deploy:
     working_directory: ~/repo
     docker:
@@ -41,16 +55,24 @@ jobs:
               aws s3 sync build s3://open-trivia-anthony-nucci --delete --exact-timestamps;
             fi
 workflows:
-  build_and_deploy:
+  build_test_deploy:
     jobs:
       - build:
           filters:
             branches:
               only:
                 - circleci-project-setup
-      - deploy:
+      - test:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - circleci-project-setup
+
+      - deploy:
+          requires:
+            - test
           filters:
             branches:
               only:

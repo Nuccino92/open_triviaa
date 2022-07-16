@@ -3,13 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
 
-import reducers from "./redux/reducers";
-import { configureStore } from "@reduxjs/toolkit";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import { Provider } from "react-redux";
+import store from "./redux/store";
 
-const store = configureStore({ reducer: reducers }, composeWithDevTools(thunk));
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

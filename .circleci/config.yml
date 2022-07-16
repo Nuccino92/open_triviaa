@@ -8,8 +8,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package-lock.json" }}
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
       - run:
           name: Install dependencies
           command: npm install
@@ -29,10 +29,13 @@ jobs:
             - .
   test:
     working_directory: ~/repo
-    - run:
-        name: Test application
-        command: npm run test
-        
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - run:
+          name: Test application
+          command: npm run test
+
   deploy:
     working_directory: ~/repo
     docker:

@@ -4,6 +4,9 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/node:12-browsers
+    artifacts:
+      paths:
+        - build/
     steps:
       - checkout
       - restore_cache:
@@ -45,6 +48,8 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: innovatorjapan/awscli:latest
+    dependencies:
+      - build
     steps:
       - attach_workspace:
           at: .
@@ -52,7 +57,7 @@ jobs:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              aws s3 sync --prefix ./client build s3://open-trivia-anthony-nucci --delete --exact-timestamps;
+              aws s3 sync build s3://open-trivia-anthony-nucci --delete --exact-timestamps;
             fi
 workflows:
   build_test_deploy:

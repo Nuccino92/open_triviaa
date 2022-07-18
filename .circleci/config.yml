@@ -43,8 +43,6 @@ jobs:
 
   deploy:
     working_directory: ~/repo
-    environment:
-      -APP_DIR: ../client
     docker:
       - image: innovatorjapan/awscli:latest
     steps:
@@ -54,7 +52,7 @@ jobs:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              aws s3 sync build s3://open-trivia-anthony-nucci --delete --exact-timestamps;
+              aws s3 sync --prefix ./client build s3://open-trivia-anthony-nucci --delete --exact-timestamps;
             fi
 workflows:
   build_test_deploy:

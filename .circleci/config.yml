@@ -12,7 +12,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install dependencies
-          command: npm --prefix ./client install
+          command: npm install
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
           paths:
@@ -21,7 +21,7 @@ jobs:
           name: Build
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              npm --prefix ./client run build
+              npm run build
             fi
       - persist_to_workspace:
           root: .
@@ -38,7 +38,7 @@ jobs:
           name: Test
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              npm --prefix ./client run test
+              npm run test
             fi
 
   deploy:

@@ -50,6 +50,7 @@ jobs:
           at: .
       - run:
           name: Deploy
+          command: cd .\client\
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
               aws s3 sync build s3://open-trivia-anthony-nucci --delete --exact-timestamps;

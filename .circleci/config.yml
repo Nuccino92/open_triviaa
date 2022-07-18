@@ -49,8 +49,8 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-        name: Enter Client
-        command: cd .\client\
+          name: Enter Client
+          command: cd .\client\
       - run:
           name: Deploy
           command: |

@@ -1,12 +1,12 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/open_triviaa/client
+    working_directory: ~/repo/client
     docker:
       - image: circleci/node:12-browsers
     steps:
       - checkout:
-        path: ~/open_triviaa
+        path: ~/repo
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
@@ -29,12 +29,12 @@ jobs:
           paths:
             - .
   test:
-    working_directory: ~/open_triviaa/client
+    working_directory: ~/repo/client
     docker:
       - image: circleci/node:12-browsers
     steps:
       - checkout:
-        path: ~/open_triviaa
+        path: ~/repo
       - attach_workspace:
           at: .
       - run:
@@ -45,12 +45,12 @@ jobs:
             fi
 
   deploy:
-    working_directory: ~/open_triviaa/client
+    working_directory: ~/repo/client
     docker:
       - image: innovatorjapan/awscli:latest
     steps:
       - checkout:
-        path: ~/open_triviaa
+        path: ~/repo
       - attach_workspace:
           at: .
       - run:

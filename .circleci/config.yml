@@ -21,7 +21,7 @@ jobs:
           name: Build
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              npm --prefix ./client npm run build
+              npm --prefix ./client run build
             fi
       - persist_to_workspace:
           root: .
@@ -38,7 +38,7 @@ jobs:
           name: Test
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              npm --prefix ./client npm run test
+              npm --prefix ./client run test
             fi
 
   deploy:

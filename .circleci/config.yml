@@ -52,7 +52,7 @@ jobs:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              npm --prefix ./client aws s3 sync build s3://open-trivia-anthony-nucci --delete --exact-timestamps;
+              aws s3 sync build s3://open-trivia-anthony-nucci --delete --exact-timestamps;
             fi
 workflows:
   build_test_deploy:

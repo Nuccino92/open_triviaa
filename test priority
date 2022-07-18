@@ -1,1 +1,10 @@
-integration testing, making sure multiple units are working together
+// integration testing, making sure multiple units are working together
+
+//   test("matches snapshot", () => {
+//     const tree = TestRenderer.create(
+//       <Provider store={store}>
+//         <Homepage setLoading={setLoading} />
+//       </Provider>
+//     ).toJSON();
+//     expect(tree).toMatchInlineSnapshot();
+//   });

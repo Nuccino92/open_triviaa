@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: ~/repo/client
     docker:
       - image: circleci/node:12-browsers
     steps:
@@ -28,7 +28,7 @@ jobs:
           paths:
             - .
   test:
-    working_directory: ~/repo
+    working_directory: ~/repo/client
     docker:
       - image: circleci/node:12-browsers
     steps:
@@ -42,7 +42,7 @@ jobs:
             fi
 
   deploy:
-    working_directory: ~/repo
+    working_directory: ~/repo/client
     docker:
       - image: innovatorjapan/awscli:latest
     steps:

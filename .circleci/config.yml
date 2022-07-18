@@ -1,12 +1,11 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/repo/client
+    working_directory: ~/repo
     docker:
       - image: circleci/node:12-browsers
     steps:
-      - checkout:
-        path: ~/repo
+      - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
@@ -22,35 +21,31 @@ jobs:
           name: Build
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              npm run build
+              npm --prefix ./client npm run build
             fi
       - persist_to_workspace:
           root: .
           paths:
             - .
   test:
-    working_directory: ~/repo/client
+    working_directory: ~/repo
     docker:
       - image: circleci/node:12-browsers
     steps:
-      - checkout:
-        path: ~/repo
       - attach_workspace:
           at: .
       - run:
           name: Test
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
-              npm run test
+              npm --prefix ./client npm run test
             fi
 
   deploy:
-    working_directory: ~/repo/client
+    working_directory: ~/repo
     docker:
       - image: innovatorjapan/awscli:latest
     steps:
-      - checkout:
-        path: ~/repo
       - attach_workspace:
           at: .
       - run:
@@ -82,4 +77,3 @@ workflows:
             branches:
               only:
                 - circleci-project-setup
-# hi

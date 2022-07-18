@@ -4,9 +4,6 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/node:12-browsers
-    artifacts:
-      paths:
-        - build/
     steps:
       - checkout
       - restore_cache:

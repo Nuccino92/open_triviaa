@@ -45,8 +45,6 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: innovatorjapan/awscli:latest
-    dependencies:
-      - build
     steps:
       - attach_workspace:
           at: .

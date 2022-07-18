@@ -42,7 +42,9 @@ jobs:
             fi
 
   deploy:
-    working_directory: ~/repo/client
+    working_directory: ~/repo
+    environment:
+      -APP_DIR: ./client
     docker:
       - image: innovatorjapan/awscli:latest
     steps:

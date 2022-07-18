@@ -6,7 +6,7 @@ jobs:
       - image: circleci/node:12-browsers
     steps:
       - checkout:
-        path: ~/open_triviaa/client
+        path: ~/open_triviaa
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
@@ -34,7 +34,7 @@ jobs:
       - image: circleci/node:12-browsers
     steps:
       - checkout:
-        path: ~/open_triviaa/client
+        path: ~/open_triviaa
       - attach_workspace:
           at: .
       - run:
@@ -50,7 +50,7 @@ jobs:
       - image: innovatorjapan/awscli:latest
     steps:
       - checkout:
-        path: ~/open_triviaa/client
+        path: ~/open_triviaa
       - attach_workspace:
           at: .
       - run:

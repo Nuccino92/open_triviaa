@@ -49,9 +49,6 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Enter Client
-          command: cd .\client\
-      - run:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then

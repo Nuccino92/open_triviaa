@@ -47,24 +47,26 @@ const Question = ({
           const selected = option;
 
           return (
-            <button
-              key={index}
-              onClick={(e) =>
-                handleSubmit(
-                  e,
-                  finalQuestion,
-                  correct,
-                  question,
-                  choiceOptions,
-                  selected,
-                  correct_answer,
-                  difficulty,
-                  category
-                )
-              }
-            >
-              {stringDecoder(option)}
-            </button>
+            <>
+              <button
+                key={index}
+                onClick={(e) =>
+                  handleSubmit(
+                    e,
+                    finalQuestion,
+                    correct,
+                    question,
+                    choiceOptions,
+                    selected,
+                    correct_answer,
+                    difficulty,
+                    category
+                  )
+                }
+              >
+                {stringDecoder(option)}
+              </button>
+            </>
           );
         })}
       </form>
